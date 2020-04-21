@@ -18,53 +18,35 @@ class Header extends Component {
   render() {
     console.log(this.state.info);
     return (
-      <div className="header">
-        {this.state.info.map((names) => {
-          return (
-            <ul>
-              <li>
-                {names.name}...{names.house}...{names.role}...
-                {names.bloodStatus}
-              </li>
-            </ul>
-          );
-        })}
-        <div className="box">
-          <div className="card">
+      <div>
+        <div className="split farleft left">
+          <div className="centered">
             <img src="/images/hufflepuff.jpeg" alt="..." />
-            <div className="container">
-              <h4>
-                <b>John Doe</b>
-              </h4>
-              <p>Architect & Engineer</p>
-            </div>
+            <h2>Hufflepuff</h2>
+            <p>Some text.</p>
           </div>
-          <div className="card">
-            <img src="/images/slytherin.jpeg" alt="..." />
-            <div className="container">
-              <h4>
-                <b>John Doe</b>
-              </h4>
-              <p>Architect & Engineer</p>
-            </div>
+        </div>
+
+        <div className="split left">
+          <div className="centered">
+            <img src="images/gryffindor.jpeg" alt="..." />
+            <h2>Gryffindor</h2>
+            <p>Some text here too.</p>
           </div>
-          <div className="card">
-            <img src="/images/gryffindor.jpeg" alt="..." />
-            <div className="container">
-              <h4>
-                <b>John Doe</b>
-              </h4>
-              <p>Architect & Engineer</p>
-            </div>
-          </div>
-          <div className="card">
+        </div>
+        <div className="split right">
+          <div className="centered">
             <img src="/images/ravenclaw.jpeg" alt="..." />
-            <div className="container">
-              <h4>
-                <b>John Doe</b>
-              </h4>
-              <p>Architect & Engineer</p>
-            </div>
+            <h2>Ravenclaw</h2>
+            <p>Some text.</p>
+          </div>
+        </div>
+
+        <div className="split farright right">
+          <div className="centered">
+            <img src="/images/slytherin.jpeg" alt="..." />
+            <h2>Slytherin</h2>
+            <p>Some text here too.</p>
           </div>
         </div>
       </div>
