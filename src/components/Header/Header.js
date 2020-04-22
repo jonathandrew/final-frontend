@@ -10,31 +10,26 @@ class Header extends Component {
     };
   }
 
-  chooseHouse = (houses) => {
-    this.setState.house = houses;
-    this.setState.house.map((info) => {
-      console.log(info.house);
-    });
-    // houses.map((item) => {
-
-    // if (item.house === "Slytherin") return;
-    // item.filter(item.house);
-    // console.log(item);
-    // console.log(this.setState.house);
-    // if (item.house === "Gryffindor") return console.log(item);
-    // });
-    // event.preventDefault();
+  chooseHouse = (house) => {
     // console.log(house);
+    let houseResult = this.state.info.filter((item) => {
+      if (item.house === house && item.role === "student") return item;
+    });
+    // console.log(houseResult);
+
+    //send info to Header
+    this.props.getHouse(houseResult);
   };
+
   componentDidMount() {
     axios.get("http://localhost:3000/character").then((results) => {
       this.setState({ info: results.data }, () => {
-        console.log(this.setState.house);
+        // console.log(this.setState.house);
       });
     });
   }
   render() {
-    console.log(this.state.info);
+    // console.log(this.state.info);
     return (
       <div>
         <div>
@@ -44,7 +39,7 @@ class Header extends Component {
               <h2>Hufflepuff</h2>
               <button
                 onClick={() => {
-                  return this.chooseHouse(this.state.info);
+                  return this.chooseHouse("Hufflepuff");
                 }}
               >
                 Students
@@ -58,7 +53,7 @@ class Header extends Component {
               <h2>Gryffindor</h2>
               <button
                 onClick={() => {
-                  return this.chooseHouse(this.state.info);
+                  return this.chooseHouse("Gryffindor");
                 }}
               >
                 Students
@@ -71,7 +66,7 @@ class Header extends Component {
               <h2>Ravenclaw</h2>
               <button
                 onClick={() => {
-                  return this.chooseHouse(this.state.info);
+                  return this.chooseHouse("Ravenclaw");
                 }}
               >
                 Students
@@ -85,7 +80,7 @@ class Header extends Component {
               <h2>Slytherin</h2>
               <button
                 onClick={() => {
-                  return this.chooseHouse(this.state.info);
+                  return this.chooseHouse("Slytherin");
                 }}
               >
                 Students
