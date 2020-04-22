@@ -11,14 +11,18 @@ class Header extends Component {
   }
 
   chooseHouse = (houses) => {
-    houses.map((item) => {
-      this.setState.house = item.house;
-      if (item.house === this.setState.house)
-        return console.log(this.setState.house);
-      else if (item.house === "Gryffindor")
-        return console.log(this.setState.house);
-      // if (item.house === "Gryffindor") return console.log(item);
+    this.setState.house = houses;
+    this.setState.house.map((info) => {
+      console.log(info.house);
     });
+    // houses.map((item) => {
+
+    // if (item.house === "Slytherin") return;
+    // item.filter(item.house);
+    // console.log(item);
+    // console.log(this.setState.house);
+    // if (item.house === "Gryffindor") return console.log(item);
+    // });
     // event.preventDefault();
     // console.log(house);
   };
