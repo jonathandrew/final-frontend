@@ -10,9 +10,14 @@ class Header extends Component {
     };
   }
 
-  chooseHouse = (house) => {
-    house.map((item) => {
-      if (item.house === "Slytherin") return console.log(item);
+  chooseHouse = (houses) => {
+    houses.map((item) => {
+      this.setState.house = item.house;
+      if (item.house === this.setState.house)
+        return console.log(this.setState.house);
+      else if (item.house === "Gryffindor")
+        return console.log(this.setState.house);
+      // if (item.house === "Gryffindor") return console.log(item);
     });
     // event.preventDefault();
     // console.log(house);
@@ -35,7 +40,7 @@ class Header extends Component {
               <h2>Hufflepuff</h2>
               <button
                 onClick={() => {
-                  return this.chooseHouse("Hufflepuff");
+                  return this.chooseHouse(this.state.info);
                 }}
               >
                 Students
@@ -49,7 +54,7 @@ class Header extends Component {
               <h2>Gryffindor</h2>
               <button
                 onClick={() => {
-                  return this.chooseHouse("Gryffindor");
+                  return this.chooseHouse(this.state.info);
                 }}
               >
                 Students
@@ -62,7 +67,7 @@ class Header extends Component {
               <h2>Ravenclaw</h2>
               <button
                 onClick={() => {
-                  return this.chooseHouse("Ravenclaw");
+                  return this.chooseHouse(this.state.info);
                 }}
               >
                 Students
@@ -97,59 +102,6 @@ class Header extends Component {
           })}
         </div> */}
       </div>
-
-      //     <div className="header">
-      //       {this.state.info.map((names) => {
-      //         return (
-      //           <ul>
-      //             <li>
-      //               {names.name}...{names.house}...{names.role}...
-      //               {names.bloodStatus}
-      //             </li>
-      //           </ul>
-      //         );
-      //       })}
-      //       <div className="card">
-      //         <div className="test">
-      //           <img src="/images/hufflepuff.jpeg" alt="..." />
-      //           <div className="container">
-      //             <h4>
-      //               <b>Hufflepuff</b>
-      //             </h4>
-      //             <p>Architect & Engineer</p>
-      //           </div>
-      //         </div>
-      //       </div>
-      //       <div className="card">
-      //         <div className="test">
-      //           <img src="/images/slytherin.jpeg" alt="..." />
-      //           <div className="container">
-      //             <h4>
-      //               <b>Slytherin</b>
-      //             </h4>
-      //             <p>Architect & Engineer</p>
-      //           </div>
-      //         </div>
-      //       </div>
-      //       <div className="card">
-      //         <img src="/images/gryffindor.jpeg" alt="..." />
-      //         <div className="container">
-      //           <h4>
-      //             <b>Gryffindor</b>
-      //           </h4>
-      //           <p>Architect & Engineer</p>
-      //         </div>
-      //       </div>
-      //       <div className="card">
-      //         <img src="/images/ravenclaw.jpeg" alt="..." />
-      //         <div className="container">
-      //           <h4>
-      //             <b>Ravenclaw</b>
-      //           </h4>
-      //           <p>Architect & Engineer</p>
-      //         </div>
-      //       </div>
-      // </div>
     );
   }
 }
