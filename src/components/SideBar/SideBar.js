@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "./SideBar.css";
 import axios from "axios";
+import AppSpellBar from "../AppSpellBar";
+import App from "../App";
 
 class SideBar extends Component {
   constructor(props) {
@@ -44,6 +46,7 @@ class SideBar extends Component {
             );
           })}
         </div>
+        <AppSpellBar></AppSpellBar>
       </div>
     );
   }
