@@ -9,71 +9,82 @@ class SideBar extends Component {
     super();
     this.state = {
       spell: [],
+      createdSpells: [],
     };
   }
   componentDidMount() {
-    axios.get("http://localhost:3000/spell").then((results) => {
+    axios.get("http://localhost:8080/spell").then((results) => {
       this.setState({ spell: results.data }, () => {
         // console.log(this.setState.spell);
       });
     });
+    axios.get("http://localhost:8080/spell/spells").then((spells) => {
+      this.setState({ createdSpells: spells });
+    });
   }
   render() {
-    console.log(this.state.spell.length);
+    console.log("render", this.state.createdSpells);
     // console.log("Sidebar", this.props.studentInfo);
     return (
       <div className="sideBar">
-        <div>
-          {this.props.studentInfo.map((people) => {
-            let spell1 = Math.floor(Math.random() * Math.floor(151));
-            // console.log(spell1);
-            let spell2 = Math.floor(Math.random() * Math.floor(151));
-            let spell3 = Math.floor(Math.random() * Math.floor(151));
-            return (
-              <div class="card">
-                {/* <img src="img.jpg" alt="John" />
+        {this.props.toggle ? (
+          <div>
+            {this.props.studentInfo.map((people) => {
+              let spell1 = Math.floor(Math.random() * Math.floor(151));
+              // console.log(spell1);
+              let spell2 = Math.floor(Math.random() * Math.floor(151));
+              let spell3 = Math.floor(Math.random() * Math.floor(151));
+              return (
+                <div class="card">
+                  {/* <img src="img.jpg" alt="John" />
                 style="width:100%"> */}
-                <h1>{people.name}</h1>
-                <div>
-                  <h1>Spells:</h1>
-                  <p>{this.state.spell[spell1].spell}</p>
+                  <h1>{people.name}</h1>
+                  <button> tracker</button>
                   <br></br>
-                  <p>{this.state.spell[spell2].spell}</p>
-                  <br></br>
-                  <p>{this.state.spell[spell3].spell}</p>
-                </div>
-                <h1>{spell1}</h1>
-                <p class="title">{people.role}</p>
-                <p>{people.bloodStatus}</p>
-                <a href="#">
-                  <i class="fa fa-dribbble"></i>
-                </a>
-                <a href="#">
-                  <i class="fa fa-twitter"></i>
-                </a>
-                <a href="#">
-                  <i class="fa fa-linkedin"></i>
-                </a>
-                <a href="#">
-                  <i class="fa fa-facebook"></i>
-                </a>
-              </div>
-            );
-          })}
-        </div>
+                  <div>
+                    <h1>Spells:</h1>
+                    <h2>{this.state.spell[spell1].spell}</h2>
+                    <p>{this.state.spell[spell1].effect}</p>
+                    <h2>{this.state.spell[spell2].spell}</h2>
+                    <p>{this.state.spell[spell2].effect}</p>
+                    <h2>{this.state.spell[spell3].spell}</h2>
+                    <p>{this.state.spell[spell3].effect}</p>
 
-        {/* <div>
-          {this.state.spell.map((spells) => {
-            return (
-              <ul>
-                <li>
-                  {spells.spell}...{spells.effect}
-                </li>
-              </ul>
-            );
-          })}
-        </div> */}
-        <AppSpellBar></AppSpellBar>
+                    <br></br>
+                  </div>
+                  {/* <h1>{spell1}</h1> */}
+                  {/* <p class="title">{people.role}</p> */}
+                  <p>{people.bloodStatus}</p>
+                  <a href="#">
+                    <i class="fa fa-dribbble"></i>
+                  </a>
+                  <a href="#">
+                    <i class="fa fa-twitter"></i>
+                  </a>
+                  <a href="#">
+                    <i class="fa fa-linkedin"></i>
+                  </a>
+                  <a href="#">
+                    <i class="fa fa-facebook"></i>
+                  </a>
+                </div>
+              );
+            })}
+          </div>
+        ) : (
+          <div>
+            <ul>
+              {this.state.spell.map((spells) => {
+                return (
+                  <li key={spells._id}>
+                    {spells.spell}...{spells.effect}
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        )}
+        <AppSpellBar createdSpells={this.state.createdSpells} />
       </div>
     );
   }

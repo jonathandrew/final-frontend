@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./Header.css";
+// import "./Header.css";
 import axios from "axios";
 class Header extends Component {
   constructor() {
@@ -22,7 +22,7 @@ class Header extends Component {
   };
 
   componentDidMount() {
-    axios.get("http://localhost:3000/character").then((results) => {
+    axios.get("http://localhost:8080/character").then((results) => {
       this.setState({ info: results.data }, () => {
         // console.log(this.setState.house);
       });
@@ -32,8 +32,15 @@ class Header extends Component {
     // console.log(this.state.info);
     return (
       <div>
-        <div>
-          <div className="split farleft left">
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "spaceBetween",
+            alignItems: "center",
+          }}
+        >
+          <div className="">
             <div className="centered">
               <img src="/images/hufflepuff.jpeg" alt="..." />
               <h2>Hufflepuff</h2>
@@ -47,7 +54,7 @@ class Header extends Component {
             </div>
           </div>
 
-          <div className="split left">
+          <div className="">
             <div className="centered">
               <img src="images/gryffindor.jpeg" alt="..." />
               <h2>Gryffindor</h2>
@@ -60,7 +67,7 @@ class Header extends Component {
               </button>
             </div>
           </div>
-          <div className="split right">
+          <div className="">
             <div className="centered">
               <img src="/images/ravenclaw.jpeg" alt="..." />
               <h2>Ravenclaw</h2>
@@ -74,7 +81,7 @@ class Header extends Component {
             </div>
           </div>
 
-          <div className="split farright right">
+          <div className="">
             <div className="centered">
               <img src="/images/slytherin.jpeg" alt="..." />
               <h2>Slytherin</h2>

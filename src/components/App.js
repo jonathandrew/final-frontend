@@ -10,7 +10,8 @@ class App extends Component {
   }
   getHouse = (house) => {
     // console.log(house);
-    this.setState({ studentInfo: house });
+    this.setState({ studentInfo: house, toggle: true });
+
     // return this.setState({ house: house });
   };
 
@@ -21,7 +22,10 @@ class App extends Component {
           <Header getHouse={this.getHouse} />
         </div>
         <div>
-          <SideBar studentInfo={this.state.studentInfo} />
+          <SideBar
+            toggle={this.state.toggle}
+            studentInfo={this.state.studentInfo}
+          />
         </div>
       </div>
     );
