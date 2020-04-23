@@ -14,24 +14,36 @@ class SideBar extends Component {
   componentDidMount() {
     axios.get("http://localhost:3000/spell").then((results) => {
       this.setState({ spell: results.data }, () => {
-        console.log(this.setState.spell);
+        // console.log(this.setState.spell);
       });
     });
   }
-
   render() {
-    console.log("Sidebar", this.props.studentInfo);
+    // console.log("Sidebar", this.props.studentInfo);
     return (
       <div className="sideBar">
         <div>
           {this.props.studentInfo.map((people) => {
             return (
-              <ul>
-                <li>
-                  {people.name}...{people.role}...
-                  {people.bloodStatus}...{people.species}
-                </li>
-              </ul>
+              <div class="card">
+                <img src="img.jpg" alt="John" />
+                style="width:100%">
+                <h1>{people.name}</h1>
+                <p class="title">{people.role}</p>
+                <p>{people.bloodStatus}</p>
+                <a href="#">
+                  <i class="fa fa-dribbble"></i>
+                </a>
+                <a href="#">
+                  <i class="fa fa-twitter"></i>
+                </a>
+                <a href="#">
+                  <i class="fa fa-linkedin"></i>
+                </a>
+                <a href="#">
+                  <i class="fa fa-facebook"></i>
+                </a>
+              </div>
             );
           })}
         </div>

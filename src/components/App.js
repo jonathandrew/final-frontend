@@ -17,7 +17,7 @@ class App extends Component {
 
   //get Info from Header and set state in App.js
   getHouse = (house) => {
-    console.log(house);
+    // console.log(house);
     this.setState({ studentInfo: house });
     // return this.setState({ house: house });
   };
