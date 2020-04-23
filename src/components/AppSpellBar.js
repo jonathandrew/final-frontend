@@ -6,7 +6,7 @@ const AddingSpell = () =>
   {
     return (
       <div>
-        <button>Hello</button>
+        <Button>Hello</Button>
       </div>
     );
   };

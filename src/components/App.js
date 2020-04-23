@@ -6,16 +6,8 @@ import SideBar from "./SideBar/SideBar";
 class App extends Component {
   constructor() {
     super();
-    this.state = { studentInfo: [] };
+    this.state = { studentInfo: [], toggle: false };
   }
-  // connect = () => {
-  //   const url = "localhost:3000/character";
-  //   axios.get(url).then((data) => {
-  //     console.log(data);
-  //   });
-  // };
-
-  //get Info from Header and set state in App.js
   getHouse = (house) => {
     // console.log(house);
     this.setState({ studentInfo: house });
