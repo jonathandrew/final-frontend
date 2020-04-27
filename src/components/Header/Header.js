@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// import "./Header.css";
+import "./Header.css";
 import axios from "axios";
 class Header extends Component {
   constructor() {
@@ -32,16 +32,9 @@ class Header extends Component {
     // console.log(this.state.info);
     return (
       <div>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "spaceBetween",
-            alignItems: "center",
-          }}
-        >
-          <div className="">
-            <div className="centered">
+        <div className="header">
+          <div className="container">
+            <div className="card">
               <img src="/images/hufflepuff.jpeg" alt="..." />
               <h2>Hufflepuff</h2>
               <button
@@ -54,8 +47,8 @@ class Header extends Component {
             </div>
           </div>
 
-          <div className="">
-            <div className="centered">
+          <div className="container">
+            <div className="card">
               <img src="images/gryffindor.jpeg" alt="..." />
               <h2>Gryffindor</h2>
               <button
@@ -67,8 +60,8 @@ class Header extends Component {
               </button>
             </div>
           </div>
-          <div className="">
-            <div className="centered">
+          <div className="container">
+            <div className="card">
               <img src="/images/ravenclaw.jpeg" alt="..." />
               <h2>Ravenclaw</h2>
               <button
@@ -81,8 +74,8 @@ class Header extends Component {
             </div>
           </div>
 
-          <div className="">
-            <div className="centered">
+          <div className="container">
+            <div className="card">
               <img src="/images/slytherin.jpeg" alt="..." />
               <h2>Slytherin</h2>
               <button

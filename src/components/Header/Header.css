@@ -1,38 +1,20 @@
-.split {
-  height: 500px;
-  width: 24%;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  overflow-x: hidden;
-  padding-top: 20px;
-}
-
-.left {
-  left: 0;
-}
-
-.right {
-  right: 0;
-}
-
-.centered {
-  /* position: absolute; */
-  top: 50%;
-  left: 50%;
-  /* transform: translate(-50%, -50%); */
+.card {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  align-items: center;
+  align-content: center;
   text-align: center;
 }
 
-.centered img {
-  width: 150px;
-  border-radius: 50%;
+/* On mouse-over, add a deeper shadow */
+
+/* Add some padding inside the card container */
+.container {
+  width: 21%;
 }
 
-.farleft {
-  left: 25%;
-}
-
-.farright {
-  right: 25%;
+.header {
+  display: flex;
+  justify-content: space-evenly;
 }

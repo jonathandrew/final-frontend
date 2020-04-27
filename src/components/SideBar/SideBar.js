@@ -12,6 +12,7 @@ class SideBar extends Component {
       createdSpells: [],
     };
   }
+
   componentDidMount() {
     axios.get("http://localhost:8080/spell").then((results) => {
       this.setState({ spell: results.data }, () => {
