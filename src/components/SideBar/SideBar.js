@@ -24,6 +24,7 @@ class SideBar extends Component {
     });
   }
   render() {
+    console.log("studentinfo", this.props.studentInfo);
     console.log("render", this.state.createdSpells);
     // console.log("Sidebar", this.props.studentInfo);
     return (
@@ -36,11 +37,11 @@ class SideBar extends Component {
               let spell2 = Math.floor(Math.random() * Math.floor(151));
               let spell3 = Math.floor(Math.random() * Math.floor(151));
               return (
+                // console.log(faker)
                 <div class="card">
                   {/* <img src="img.jpg" alt="John" />
                 style="width:100%"> */}
                   <h1>{people.name}</h1>
-                  <button> tracker</button>
                   <br></br>
                   <div>
                     <h1>Spells:</h1>

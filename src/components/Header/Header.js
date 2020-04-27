@@ -34,7 +34,7 @@ class Header extends Component {
       <div>
         <div className="header">
           <div className="container">
-            <div className="card">
+            <div className="cards">
               <img src="/images/hufflepuff.jpeg" alt="..." />
               <h2>Hufflepuff</h2>
               <button
@@ -48,7 +48,7 @@ class Header extends Component {
           </div>
 
           <div className="container">
-            <div className="card">
+            <div className="cards">
               <img src="images/gryffindor.jpeg" alt="..." />
               <h2>Gryffindor</h2>
               <button
@@ -61,7 +61,7 @@ class Header extends Component {
             </div>
           </div>
           <div className="container">
-            <div className="card">
+            <div className="cards">
               <img src="/images/ravenclaw.jpeg" alt="..." />
               <h2>Ravenclaw</h2>
               <button
@@ -75,7 +75,7 @@ class Header extends Component {
           </div>
 
           <div className="container">
-            <div className="card">
+            <div className="cards">
               <img src="/images/slytherin.jpeg" alt="..." />
               <h2>Slytherin</h2>
               <button
