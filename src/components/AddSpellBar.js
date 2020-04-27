@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Button from "./Button";
 import axios from "axios";
+import "./AddSpellBar.css";
+
 class AddSpellBar extends Component {
   constructor() {
     super();
@@ -48,11 +50,34 @@ class AddSpellBar extends Component {
       // console.log("New Spell", spell);
     });
   }
+
   render() {
     // console.log('props', this.props.createdSpells.data);
     // console.log(this.state.createdSpells);
     return (
       <div>
+        <div className="">
+          <form onSubmit={this.handleSubmit}>
+            <h1>Spell</h1>
+            <input
+              type="text"
+              placeholder="spell..."
+              name="spell"
+              value={this.state.localSpell.spell}
+              onChange={this.handleChange}
+            />
+            <h1>Effect</h1>
+            <input
+              type="text"
+              placeholder="effect..."
+              name="effect"
+              value={this.state.localSpell.effect}
+              onChange={this.handleChange}
+            />
+            <br></br>
+            <button type="submit">Submit</button>
+          </form>
+        </div>
         <h3>New Spells</h3>
         {this.state.createdSpells ? (
           this.state.createdSpells.map((info) => {
@@ -60,9 +85,11 @@ class AddSpellBar extends Component {
               <div>
                 <ul>
                   <li>
-                    {info.spell}... {info.effect}
+                    <h2>
+                      {info.spell}
+                      <p>{info.effect}</p>
+                    </h2>
                   </li>
-                  <li>{info.effect}</li>
                 </ul>
               </div>
             );
@@ -70,23 +97,6 @@ class AddSpellBar extends Component {
         ) : (
           <p>No data</p>
         )}
-        <form onSubmit={this.handleSubmit}>
-          <input
-            type="text"
-            placeholder="spell..."
-            name="spell"
-            value={this.state.localSpell.spell}
-            onChange={this.handleChange}
-          />
-          <input
-            type="text"
-            placeholder="effect..."
-            name="effect"
-            value={this.state.localSpell.effect}
-            onChange={this.handleChange}
-          />
-          <button type="submit">Submit</button>
-        </form>
       </div>
     );
   }

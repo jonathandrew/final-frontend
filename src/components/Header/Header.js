@@ -20,10 +20,6 @@ class Header extends Component {
     //send info to Header
     this.props.getHouse(houseResult);
   };
-  chooseSpell = (spell) => {
-    let newSpell = this.state.info.created;
-    return console.log(spell);
-  };
 
   componentDidMount() {
     axios.get("http://localhost:8080/character").then((results) => {
@@ -77,14 +73,13 @@ class Header extends Component {
               </button>
             </div>
           </div>
-
           <div className="container">
             <div className="cards">
               <img src="/images/slytherin.jpeg" alt="..." />
               <h2>Slytherin</h2>
               <button
                 onClick={() => {
-                  return this.chooseSpell("hello");
+                  return this.chooseHouse("Slytherin");
                 }}
               >
                 Students

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./SideBar.css";
 import axios from "axios";
-import AppSpellBar from "../AppSpellBar";
+import AppSpellBar from "../AddSpellBar";
 import App from "../App";
 
 class SideBar extends Component {
@@ -14,14 +14,30 @@ class SideBar extends Component {
   }
 
   componentDidMount() {
-    axios.get("http://localhost:8080/spell").then((results) => {
-      this.setState({ spell: results.data }, () => {
-        // console.log(this.setState.spell);
+    axios
+      .get("http://localhost:8080/spell")
+      .then((results) => {
+        this.setState({ spell: results.data });
+      })
+      .then(() => {
+        axios
+          .get("http://localhost:8080/spell/spells")
+          .then((createdSpells) => {
+            const updatedSpell = [...createdSpells.data, ...this.state.spell];
+
+            // const arr1 = [1, 2, 3];
+            // const arr2 = [4, 5, 6];
+            // const arr3 = [...arr1, ...arr2];
+
+            // Math.random()
+            // console.log("Test", arr3);
+            console.log("Updated spell", updatedSpell);
+
+            this.setState({ createdSpells, spell: updatedSpell }, () => {
+              console.log("Update", this.state.spell);
+            });
+          });
       });
-    });
-    axios.get("http://localhost:8080/spell/spells").then((spells) => {
-      this.setState({ createdSpells: spells });
-    });
   }
   render() {
     console.log("studentinfo", this.props.studentInfo);
@@ -54,18 +70,6 @@ class SideBar extends Component {
                 </div>
                 {/* <h1>{spell1}</h1> */}
                 {/* <p class="title">{people.role}</p> */}
-                <a href="#">
-                  <i class="fa fa-dribbble"></i>
-                </a>
-                <a href="#">
-                  <i class="fa fa-twitter"></i>
-                </a>
-                <a href="#">
-                  <i class="fa fa-linkedin"></i>
-                </a>
-                <a href="#">
-                  <i class="fa fa-facebook"></i>
-                </a>
               </div>
             );
           })}
