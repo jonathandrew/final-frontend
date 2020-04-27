@@ -12,6 +12,8 @@ class AddSpellBar extends Component {
         spell: "",
         effect: "",
       },
+      toggle: false,
+      passedSpells: [],
     };
   }
   handleChange = (event) => {
@@ -44,6 +46,7 @@ class AddSpellBar extends Component {
         });
       });
   };
+
   componentDidMount() {
     axios.get("http://localhost:8080/spell/spells").then((spells) => {
       this.setState({ createdSpells: spells.data });
@@ -51,12 +54,25 @@ class AddSpellBar extends Component {
     });
   }
 
+  showSpells = (showMeSpells) => {
+    this.setState({ passedSpells: showMeSpells, toggle: true });
+  };
+
   render() {
     // console.log('props', this.props.createdSpells.data);
     // console.log(this.state.createdSpells);
     return (
       <div>
-        <div className="">
+        <div className=" hi">
+          <div className="test">
+            <button
+              onClick={() => {
+                return this.showSpells(this.setState.createdSpells);
+              }}
+            >
+              Created Spells
+            </button>
+          </div>
           <form onSubmit={this.handleSubmit}>
             <h1>Spell</h1>
             <input
@@ -78,25 +94,27 @@ class AddSpellBar extends Component {
             <button type="submit">Submit</button>
           </form>
         </div>
-        <h3>New Spells</h3>
-        {this.state.createdSpells ? (
-          this.state.createdSpells.map((info) => {
-            return (
-              <div>
-                <ul>
-                  <li>
-                    <h2>
-                      {info.spell}
-                      <p>{info.effect}</p>
-                    </h2>
-                  </li>
-                </ul>
-              </div>
-            );
-          })
-        ) : (
-          <p>No data</p>
-        )}
+        <div className="goodbye">
+          <h3>New Spells</h3>
+          {this.state.createdSpells ? (
+            this.state.createdSpells.map((info) => {
+              return (
+                <div>
+                  <ul>
+                    <li>
+                      <h2>
+                        {info.spell}
+                        <p>{info.effect}</p>
+                      </h2>
+                    </li>
+                  </ul>
+                </div>
+              );
+            })
+          ) : (
+            <p>No data</p>
+          )}
+        </div>
       </div>
     );
   }

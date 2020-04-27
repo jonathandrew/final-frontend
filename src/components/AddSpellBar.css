@@ -1,5 +1,19 @@
 input {
-  width: 75%;
+  width: 37%;
   height: 30px;
   margin-bottom: 5px;
+}
+
+.hi {
+  background-color: blue;
+}
+
+.goodbye {
+  background-color: lightgreen;
+  display: grid;
+  text-align: center;
+}
+
+ul {
+  list-style-type: none;
 }
